@@ -1,4 +1,4 @@
-#Create date：Dec,2021
+#Create dateDec,2021
 #Version: v1.0
 #This program codes correspond with the Benewake TTL-USB coverter
 #This program is for reference only

@@ -8,7 +8,5 @@ class TF03:
         self.point_cloud_pub = rospy.Publisher('benewake/pc', PointCloud2, queue_size=1)
     
     def send_data(self, z):
-        self.broadcast()
-        self.publish_states()
-        pc = make_point_cloud([0,0,z])
+        pc = make_point_cloud([0,0,z/100.0])
         self.point_cloud_pub.publish(pc)
