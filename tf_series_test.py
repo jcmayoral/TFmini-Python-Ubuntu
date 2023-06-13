@@ -7,6 +7,10 @@
 import serial.tools.list_ports
 import time
 import numpy as np
+from rosify_v1 import TF03
+
+
+sensor = TF03()
 
 ser = serial.Serial()
 ser.port = '/dev/ttyUSB1'    #set usb port
@@ -35,6 +39,7 @@ def getTFminiData():
             strength = lowS + highS * 256
             temp = (np.int16(lowD + np.int16(highD << 8)))/8-256 #Calculate chip temperature
             print('distance = %5d  strengh = %5d  temperature = %5d' % (distance, strength, temp))
+            sensor.send_data(distance)
       else:
          time.sleep(0.005) #50ms
 if __name__ == '__main__':
